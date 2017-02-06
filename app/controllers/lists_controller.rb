@@ -39,6 +39,9 @@ class ListsController < ApplicationController
 
   def destroy
    @list = List.find(params[:id])
+   @list.tasks.each do |task|
+     task.destroy
+   end
    @list.destroy
    redirect_to lists_path
  end
