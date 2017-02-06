@@ -11,6 +11,14 @@ describe "the edit a task process" do
     expect(page).to have_content 'Wash the dog'
   end
 
+  it "deletes a task" do
+    list = List.create(:name => 'Home stuff')
+    task = Task.create(:description => 'Wash the dishes', :list_id => list.id)
+    visit list_path(list)
+    click_on 'Delete'
+    expect(page).to have_content 'There are no tasks yet!'
+  end
+
   it "gives error when no description is entered" do
     list = List.create(:name => 'Home stuff')
     task = Task.create(:description => 'Wash the dishes', :list_id => list.id)
