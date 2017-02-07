@@ -5,6 +5,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @completeTasks = Task.completeTasks(@list.id)
   end
 
   def new
