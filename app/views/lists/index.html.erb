@@ -1,5 +1,7 @@
 <h1>Lists</h1>
-
+<div class="jumbotron">
+  <h1>jumbo</h1>
+</div>
 <ul>
   <% @lists.each do |list| %>
     <li><%= link_to list.name, list_path(list) %></li>
