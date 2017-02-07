@@ -37,10 +37,11 @@ class TasksController < ApplicationController
   end
 
   def complete
-    @task = Task.find(params[:list_id])
+    @task = Task.find(params[:task_id])
+    @list = List.find(params[:list_id])
     @task.done = true
     @task.save
-    redirect_to lists_path
+    redirect_to list_path(@list)
   end
 
 

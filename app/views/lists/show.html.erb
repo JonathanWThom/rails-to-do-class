@@ -8,7 +8,7 @@
   <ul>
     <% @list.tasks.each do |task| %>
       <li>
-        <%= task.description %> | <%= task.done %> | <%= link_to "Complete", complete_list_tasks_path(task), class: "button" %> |
+        <%= task.description %> | <%= task.done %> | <%= link_to "Complete", list_task_complete_path(@list, task)%> |
         <%= link_to "Edit", edit_list_task_path(@list, task) %> |
         <%= link_to "Delete", list_task_path(@list, task),
         :data => {:confirm => "Are you sure?",

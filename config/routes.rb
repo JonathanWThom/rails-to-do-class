@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   resources :lists do
     resources :tasks do
-      collection do
-        get :complete
-      end
+      get '/complete', to: 'tasks#complete', via: [:patch]
     end
   end
 
